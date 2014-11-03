@@ -4,3 +4,6 @@ C:\CS426\AnhderCompiler\AnhderCompiler\bin\Debug\AnhderCompiler.exe
 C:\CS426\AnhderCompiler\AnhderCompiler\bin\Debug\AnhderCompiler.pdb
 C:\CS426\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.exe
 C:\CS426\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.pdb
+C:\temp\Analyzer\AnhderCompiler\AnhderCompiler\bin\Debug\AnhderCompiler.exe.config
+C:\temp\Analyzer\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.exe
+C:\temp\Analyzer\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.pdb
