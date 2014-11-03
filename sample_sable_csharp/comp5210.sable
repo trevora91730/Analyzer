@@ -1,0 +1,25 @@
+Package comp5210;
+
+Helpers
+    digit = ['0' .. '9'] ;
+    ascii_char = [32 .. 127] ;
+    letter = [['a' .. 'z'] + ['A' .. 'Z']] ;
+	eol = 10|13 ; 
+Tokens
+	bang = '!';
+	whitespace = (' '|9|10|13)+;
+	comment = '//' ascii_char* eol|'/*' ascii_char* '*/';
+	op = '&&'|'<'|'+'|'-'|'*';
+	class = 'class';
+	public = 'public';
+	private = 'private';
+	id = letter+;
+	return = 'return';
+
+	
+IgnoredTokens
+	whitespace, 
+	comment;
+	
+Productions
+        fred = {public} public [id1]:id [id2]:id | {private} private [id1]:id [id2]:id;

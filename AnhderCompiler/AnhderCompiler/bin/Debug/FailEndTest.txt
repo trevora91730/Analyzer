@@ -1,0 +1,5 @@
+comment forgetting to include an end
+
+main start bracket
+	this_integer is assigned to 3
+end bracket

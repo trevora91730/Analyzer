@@ -1,0 +1,44 @@
+class
+public
+private
+return
+
+loop
+if
+else
+
+this_variable
+variablename
+vari8ble_name
+
+3
+110
+10.34e4
+20.15e-13
+1.234e2
+
+x is assigned to 3
+10 plus 3 equals 13
+y is assigned to x minus 10
+10 times 10
+this_variable divided by 10.23e15
+
+10 equals x
+10 is less than 8
+1.5e10 is greater than thisvariable
+5 is less than or equal to 8
+8 is greater than or equal to 2.5e-4
+variable is at least 15
+
+start parentheses x plus 3 end parentheses
+start bracket this_variable end bracket
+start brace 2.0e15 end brace
+
+x equals 10 and 11
+8 is less than 5 not is greater than 9
+2015 or 2013
+
+"this is a string"
+"So is /"this/""
+
+comment this is a comment

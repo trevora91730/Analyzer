@@ -1,0 +1,3 @@
+comment array without size
+
+this_array start bracket end bracket end

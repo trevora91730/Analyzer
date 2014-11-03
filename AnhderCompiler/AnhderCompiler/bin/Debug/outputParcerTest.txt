@@ -1,0 +1,211 @@
+
+- AProgram
+     |- AIntegerConstants
+     |  |- this_integer
+     |  |- is assigned to
+     |  |- 4
+     |  |- end
+     |  `- AFloatConstants
+     |     |- this_float
+     |     |- is assigned to
+     |     |- 3.0e5
+     |     |- end
+     |     `- AStringConstants
+     |        |- this_string
+     |        |- is assigned to
+     |        |- "Hello there"
+     |        `- end
+     |        `- ANoneConstants
+     |- ASomeMethods
+     |  |- public
+     |  |- method
+     |  |- start parentheses
+     |  |- ASomeInitParam
+     |  |  |- integer
+     |  |  `- this_integer
+     |  |  `- ADoneSecondParam
+     |  |- end parentheses
+     |  |- start brace
+     |  |- ADeclsStuff
+     |  |  |- AVarDecls
+     |  |  |  |- integer
+     |  |  |  `- this_integer2
+     |  |  |- end
+     |  |  `- ADeclsStuff
+     |  |     |- AVarDecls
+     |  |     |  |- float
+     |  |     |  `- this_float2
+     |  |     |- end
+     |  |     `- ADeclsStuff
+     |  |        |- AVarDecls
+     |  |        |  |- string
+     |  |        |  `- this_string2
+     |  |        |- end
+     |  |        `- ADeclsStuff
+     |  |           |- AArrayDecls
+     |  |           |  |- float
+     |  |           |  |- array1
+     |  |           |  |- start bracket
+     |  |           |  |- 13
+     |  |           |  `- end bracket
+     |  |           `- end
+     |  |           `- ANoneStuff
+     |  `- end brace
+     |  `- ANoneMethods
+     `- AProgramMainProgram
+        |- main
+        |- start brace
+        |- ADeclsStuff
+        |  |- AVarDecls
+        |  |  |- integer
+        |  |  `- this_integer1
+        |  |- end
+        |  `- ADeclsStuff
+        |     |- AVarDecls
+        |     |  |- float
+        |     |  `- this_float1
+        |     |- end
+        |     `- ADeclsStuff
+        |        |- AVarDecls
+        |        |  |- string
+        |        |  `- this_string1
+        |        |- end
+        |        `- ADeclsStuff
+        |           |- AArrayDecls
+        |           |  |- integer
+        |           |  |- array
+        |           |  |- start bracket
+        |           |  |- 5
+        |           |  `- end bracket
+        |           |- end
+        |           `- AAssignmentStuff
+        |              |- AMathAssignments
+        |              |  |- this_float
+        |              |  |- is assigned to
+        |              |  `- ANoneMath
+        |              |     `- ANoneMultiDivide
+        |              |        `- AFloatParentheses
+        |              |           `- 3.0e3
+        |              |- end
+        |              `- AAssignmentStuff
+        |                 |- AMathAssignments
+        |                 |  |- this_integer
+        |                 |  |- is assigned to
+        |                 |  `- ANoneMath
+        |                 |     `- ANoneMultiDivide
+        |                 |        `- AIntegerParentheses
+        |                 |           `- 15
+        |                 |- end
+        |                 `- AAssignmentStuff
+        |                    |- AStringAssignments
+        |                    |  |- this_string
+        |                    |  |- is assigned to
+        |                    |  `- "HI"
+        |                    |- end
+        |                    `- AMethodCallStuff
+        |                       |- AMethodCall
+        |                       |  |- method
+        |                       |  |- start parentheses
+        |                       |  |- AVarParam
+        |                       |  |  `- this_integer
+        |                       |  |  `- ADoneMoreParam
+        |                       |  `- end parentheses
+        |                       |- end
+        |                       `- AMethodCallStuff
+        |                          |- AMethodCall
+        |                          |  |- method
+        |                          |  |- start parentheses
+        |                          |  |- AStringParam
+        |                          |  |  `- "string"
+        |                          |  |  `- ADoneMoreParam
+        |                          |  `- end parentheses
+        |                          |- end
+        |                          `- AAssignmentStuff
+        |                             |- AMathAssignments
+        |                             |  |- variable
+        |                             |  |- is assigned to
+        |                             |  `- AAddMath
+        |                             |     |- ANoneMath
+        |                             |     |  `- ANoneMultiDivide
+        |                             |     |     `- AIntegerParentheses
+        |                             |     |        `- 2
+        |                             |     |- plus
+        |                             |     `- ANoneMultiDivide
+        |                             |        `- AIntegerParentheses
+        |                             |           `- 5
+        |                             |- end
+        |                             `- AAssignmentStuff
+        |                                |- AMathAssignments
+        |                                |  |- this_float
+        |                                |  |- is assigned to
+        |                                |  `- ANoneMath
+        |                                |     `- AMultiMultiDivide
+        |                                |        |- ANoneMultiDivide
+        |                                |        |  `- AVariableParentheses
+        |                                |        |     `- this_float
+        |                                |        |- times
+        |                                |        `- AFloatParentheses
+        |                                |           `- 3.0e3
+        |                                |- end
+        |                                `- AAssignmentStuff
+        |                                   |- AMathAssignments
+        |                                   |  |- this_integer
+        |                                   |  |- is assigned to
+        |                                   |  `- ANoneMath
+        |                                   |     `- AMultiMultiDivide
+        |                                   |        |- ANoneMultiDivide
+        |                                   |        |  `- ASomeParentheses
+        |                                   |        |     |- start parentheses
+        |                                   |        |     |- ASubMath
+        |                                   |        |     |  |- ANoneMath
+        |                                   |        |     |  |  `- ANoneMultiDivide
+        |                                   |        |     |  |     `- AVariableParentheses
+        |                                   |        |     |  |        `- this_float
+        |                                   |        |     |  |- minus
+        |                                   |        |     |  `- ANoneMultiDivide
+        |                                   |        |     |     `- AFloatParentheses
+        |                                   |        |     |        `- 2.2e3
+        |                                   |        |     `- end parentheses
+        |                                   |        |- times
+        |                                   |        `- AIntegerParentheses
+        |                                   |           `- 5
+        |                                   |- end
+        |                                   `- AAssignmentStuff
+        |                                      |- AMathArrayAssignments
+        |                                      |  |- this_array
+        |                                      |  |- start bracket
+        |                                      |  |- AAddMath
+        |                                      |  |  |- ANoneMath
+        |                                      |  |  |  `- ANoneMultiDivide
+        |                                      |  |  |     `- AIntegerParentheses
+        |                                      |  |  |        `- 3
+        |                                      |  |  |- plus
+        |                                      |  |  `- ANoneMultiDivide
+        |                                      |  |     `- AVariableParentheses
+        |                                      |  |        `- this_integer
+        |                                      |  |- end bracket
+        |                                      |  |- is assigned to
+        |                                      |  `- ANoneMath
+        |                                      |     `- ANoneMultiDivide
+        |                                      |        `- AIntegerParentheses
+        |                                      |           `- 3
+        |                                      |- end
+        |                                      `- ALoopStuff
+        |                                         `- ALoops
+        |                                         |  |- loop
+        |                                         |  |- AVariableMathCircumstance
+        |                                         |  |  |- start parentheses
+        |                                         |  |  |- this_variable
+        |                                         |  |  |- AEqualComparison
+        |                                         |  |  |  `- equals
+        |                                         |  |  |- ANoneMath
+        |                                         |  |  |  `- ANoneMultiDivide
+        |                                         |  |  |     `- AVariableParentheses
+        |                                         |  |  |        `- this_variable
+        |                                         |  |  `- end parentheses
+        |                                         |  `- start brace
+        |                                         |  |- ANoneStuff
+        |                                         |  `- end brace
+        |                                         `- ANoneStuff
+        `- end brace
+

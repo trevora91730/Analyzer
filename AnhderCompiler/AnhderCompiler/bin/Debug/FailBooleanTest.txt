@@ -1,0 +1,5 @@
+comment bad boolean expression
+
+main start brace
+	this_variable is less than this_variable is less than this_variable end
+end brace

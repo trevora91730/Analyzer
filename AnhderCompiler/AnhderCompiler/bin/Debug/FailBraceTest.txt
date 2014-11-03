@@ -1,0 +1,28 @@
+comment forget the end brace
+main start brace
+	comment these are declarations
+	integer this_integer1 end
+	float this_float1 end
+	string this_string1 end
+	integer array start bracket 5 end bracket end
+
+	this_float is assigned to 3.0e3 end
+	this_integer is assigned to 15 end
+	this_string is assigned to "HI" end 
+
+	comment this calls a method
+	method start parentheses this_integer end parentheses end
+	method start parentheses "string" end parentheses end
+
+	comment this tests math
+	variable is assigned to 2 plus 5 end
+	this_float is assigned to this_float times 3.0e3 end
+	this_integer is assigned to start parentheses this_float minus 2.2e3 end parentheses times 5 end
+	this_array start bracket 3 plus this_integer end bracket is assigned to 3 end
+
+	comment test if else
+	loop start parentheses this_variable equals this_variable end parentheses start brace 
+	end brace
+		
+	
+comment end brace

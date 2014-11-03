@@ -1,0 +1,43 @@
+comment these are the constants
+this_integer is assigned to 4 end
+this_float is assigned to 3.0e5 end
+this_string is assigned to "Hello there" end
+
+comment this is a method
+public method start parentheses integer this_integer end parentheses
+	start brace
+	integer this_integer2 end
+	float this_float2 end
+	string this_string2 end
+	float array1 start bracket 13 end bracket end
+	
+end brace
+
+comment this is the main prgram
+main start brace
+	comment these are declarations
+	integer this_integer1 end
+	float this_float1 end
+	string this_string1 end
+	integer array start bracket 5 end bracket end
+
+	this_float is assigned to 3.0e3 end
+	this_integer is assigned to 15 end
+	this_string is assigned to "HI" end 
+
+	comment this calls a method
+	method start parentheses this_integer end parentheses end
+	method start parentheses "string" end parentheses end
+
+	comment this tests math
+	variable is assigned to 2 plus 5 end
+	this_float is assigned to this_float times 3.0e3 end
+	this_integer is assigned to start parentheses this_float minus 2.2e3 end parentheses times 5 end
+	this_array start bracket 3 plus this_integer end bracket is assigned to 3 end
+
+	comment test if else
+	loop start parentheses this_variable equals this_variable end parentheses start brace 
+	end brace
+		
+	
+end brace
