@@ -143,6 +143,8 @@ namespace parser
 
             if (!stringhash.ContainsValue(method) && !nodehash.ContainsValue(method))
             {
+                BasicType methodtype = new BasicType();
+                methodtype.name = "method";
                 stringhash.Add(method.name, method);
             }
             else
@@ -223,7 +225,129 @@ namespace parser
             }
         }
 
-        public override void 
+        public override void OutAVarDecls(comp5210.node.AVarDecls node)
+        {
+            String typename = node.GetVar1().Text;
+            String varname = node.GetVar2().Text;
+            Definition typeconst;
+
+            if(!stringhash.TryGetValue(varname, out typeconst))
+            {
+                Console.WriteLine("[" + node.GetVar2().Line + "]" + typename + " is not defined." );
+            }
+
+            else if (!(typeconst is TypeDefinition))
+            {
+                Console.WriteLine("[" + node.GetVar1().Line + "]: " +
+                    typename + " is an invalid type.");
+            }
+            else
+            {
+                // add this variable to the hash table
+                // note you need to add checks to make sure this 
+                // variable name isn't already defined.
+                VariableDefinition varconst = new VariableDefinition();
+                varconst.name = varname;
+                varconst.vartype = typeconst as TypeDefinition;
+
+                if (!stringhash.ContainsValue(varconst) && !nodehash.ContainsValue(varconst))
+                {
+                    stringhash.Add(varconst.name, varconst);
+                }
+                else
+                {
+                    Console.WriteLine("[" + node.GetVar2().Line + "]: " + "variables already in tables");
+                }
+            }
+        }
+
+         public override void OutAArrayDecls(comp5210.node.AArrayDecls node)
+        {
+            String typename = node.GetVar1().Text;
+            String varname = node.GetVar2().Text;
+            Definition typeconst;
+
+            if(!stringhash.TryGetValue(varname, out typeconst))
+            {
+                Console.WriteLine("[" + node.GetVar2().Line + "]" + typename + " is not defined." );
+            }
+
+            else if (!(typeconst is TypeDefinition))
+            {
+                Console.WriteLine("[" + node.GetVar1().Line + "]: " +
+                    typename + " is an invalid type.");
+            }
+            else
+            {
+                // add this variable to the hash table
+                // note you need to add checks to make sure this 
+                // variable name isn't already defined.
+                VariableDefinition varconst = new VariableDefinition();
+                varconst.name = varname;
+                varconst.vartype = typeconst as TypeDefinition;
+
+                if (!stringhash.ContainsValue(varconst) && !nodehash.ContainsValue(varconst))
+                {
+                    stringhash.Add(varconst.name, varconst);
+                }
+                else
+                {
+                    Console.WriteLine("[" + node.GetVar2().Line + "]: " + "variables already in tables");
+                }
+            }
+        }
+
+        public override void OutMathAssignments(comp5210.node.AMathAssignments node)
+         {
+             VariableDefinition var = new VariableDefinition();
+             var.name = node.GetVariable().Text;
+
+
+             if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+             {
+                 stringhash.Add(var.name, var);
+                 Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable not in tables");
+             }              
+         }
+
+        public override void OutStringAssignments(comp5210.node.AStringAssignments node)
+        {
+            VariableDefinition var = new VariableDefinition();
+            var.name = node.GetVariable().Text;
+
+
+            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+            {
+                stringhash.Add(var.name, var);
+                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable not in tables");
+            }
+        }
+
+        public override void OutMathArrayAssignments(comp5210.node.AMathArrayAssignments node)
+        {
+            VariableDefinition var = new VariableDefinition();
+            var.name = node.GetVariable().Text;
+
+
+            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+            {
+                stringhash.Add(var.name, var);
+                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable not in tables");
+            }
+        }
+
+        public override void OutStringArrayAssignments(comp5210.node.AStringArrayAssignments node)
+        {
+            VariableDefinition var = new VariableDefinition();
+            var.name = node.GetVariable().Text;
+
+
+            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+            {
+                stringhash.Add(var.name, var);
+                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable not in tables");
+            }
+        }
        /* public override void OutAProgramMain_Program(comp5210.node.AProgramMain_Program node)
         {
              string varname = node.GetVarname().Text;
@@ -326,6 +450,6 @@ namespace parser
                 nodehash.Add(node, (iddefn as VariableDefinition).vartype);
             }
         }
-         
-    }*/
+         */
+    }
 }
