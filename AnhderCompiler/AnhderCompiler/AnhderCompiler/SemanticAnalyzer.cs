@@ -187,40 +187,25 @@ namespace parser
             }
         }
 
-        public override void OutAOthersSecondParam(comp5210.node.AOthersSecondParam node)
+        public override void OutASomeSecondParam(comp5210.node.AOthersSecondParam node)
         {
-            String typename = node.GetVar1().Text;
-            String varname = node.GetVar2().Text;
-            Definition typeconst;
+            VariableDefinition var1 = new VariableDefinition();
+            VariableDefinition var2 = new VariableDefinition();
+            var1.name = node.GetVar1().Text;
+            var2.name = node.GetVar2().Text;
 
-            if (!stringhash.TryGetValue(varname, out typeconst))
+            if (!stringhash.ContainsValue(var1) && !nodehash.ContainsValue(var1))
             {
-                Console.WriteLine("[" + node.GetVar1().Line + "]" + typename + " is not defined.");
+                stringhash.Add(var1.name, var1);
             }
-
-            else if (!(typeconst is TypeDefinition))
+            else if (!stringhash.ContainsValue(var2) && !nodehash.ContainsValue(var2))
             {
-                Console.WriteLine("[" + node.GetVar1().Line + "]: " +
-                    typename + " is an invalid type.");
+                stringhash.Add(var1.name, var2);
             }
             else
             {
-                // add this variable to the hash table
-                // note you need to add checks to make sure this 
-                // variable name isn't already defined.
-                VariableDefinition varconst = new VariableDefinition();
-                varconst.name = varname;
-                varconst.vartype = typeconst as TypeDefinition;
-
-                if (!stringhash.ContainsValue(varconst) && !nodehash.ContainsValue(varconst))
-                {
-                    stringhash.Add(varconst.name, varconst);
-                }
-                else
-                {
-                    Console.WriteLine("[" + node.GetVar2().Line + "]: " + "variables already in tables");
-                }
-            }
+                Console.WriteLine("[" + node.GetVar1().Line + " or " + node.GetVar2() + "]: " + "variables already in tables");
+            } 
         }
 
         public override void 
@@ -326,6 +311,6 @@ namespace parser
                 nodehash.Add(node, (iddefn as VariableDefinition).vartype);
             }
         }
-         
-    }*/
+         */
+    }
 }
