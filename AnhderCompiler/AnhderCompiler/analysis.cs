@@ -18,7 +18,6 @@ public interface Analysis : Switch
     void CaseAProgram(AProgram node);
     void CaseAIntegerConstants(AIntegerConstants node);
     void CaseAFloatConstants(AFloatConstants node);
-    void CaseAStringConstants(AStringConstants node);
     void CaseANoneConstants(ANoneConstants node);
     void CaseASomeMethods(ASomeMethods node);
     void CaseANoneMethods(ANoneMethods node);
@@ -182,10 +181,6 @@ public class AnalysisAdapter : Analysis
         DefaultCase(node);
     }
     public virtual void CaseAFloatConstants(AFloatConstants node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAStringConstants(AStringConstants node)
     {
         DefaultCase(node);
     }
@@ -618,9 +613,13 @@ public class DepthFirstAdapter : AnalysisAdapter
     public override void CaseAIntegerConstants(AIntegerConstants node)
     {
         InAIntegerConstants(node);
-        if(node.GetVariable() != null)
+        if(node.GetVar1() != null)
         {
-            node.GetVariable().Apply(this);
+            node.GetVar1().Apply(this);
+        }
+        if(node.GetVar2() != null)
+        {
+            node.GetVar2().Apply(this);
         }
         if(node.GetAssignment() != null)
         {
@@ -653,9 +652,13 @@ public class DepthFirstAdapter : AnalysisAdapter
     public override void CaseAFloatConstants(AFloatConstants node)
     {
         InAFloatConstants(node);
-        if(node.GetVariable() != null)
+        if(node.GetVar1() != null)
         {
-            node.GetVariable().Apply(this);
+            node.GetVar1().Apply(this);
+        }
+        if(node.GetVar2() != null)
+        {
+            node.GetVar2().Apply(this);
         }
         if(node.GetAssignment() != null)
         {
@@ -674,41 +677,6 @@ public class DepthFirstAdapter : AnalysisAdapter
             node.GetConstants().Apply(this);
         }
         OutAFloatConstants(node);
-    }
-    public virtual void InAStringConstants(AStringConstants node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAStringConstants(AStringConstants node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAStringConstants(AStringConstants node)
-    {
-        InAStringConstants(node);
-        if(node.GetVariable() != null)
-        {
-            node.GetVariable().Apply(this);
-        }
-        if(node.GetAssignment() != null)
-        {
-            node.GetAssignment().Apply(this);
-        }
-        if(node.GetString() != null)
-        {
-            node.GetString().Apply(this);
-        }
-        if(node.GetEnd() != null)
-        {
-            node.GetEnd().Apply(this);
-        }
-        if(node.GetConstants() != null)
-        {
-            node.GetConstants().Apply(this);
-        }
-        OutAStringConstants(node);
     }
     public virtual void InANoneConstants(ANoneConstants node)
     {
@@ -2039,9 +2007,13 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetAssignment().Apply(this);
         }
-        if(node.GetVariable() != null)
+        if(node.GetVar2() != null)
         {
-            node.GetVariable().Apply(this);
+            node.GetVar2().Apply(this);
+        }
+        if(node.GetVar1() != null)
+        {
+            node.GetVar1().Apply(this);
         }
         OutAIntegerConstants(node);
     }
@@ -2074,46 +2046,15 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetAssignment().Apply(this);
         }
-        if(node.GetVariable() != null)
+        if(node.GetVar2() != null)
         {
-            node.GetVariable().Apply(this);
+            node.GetVar2().Apply(this);
+        }
+        if(node.GetVar1() != null)
+        {
+            node.GetVar1().Apply(this);
         }
         OutAFloatConstants(node);
-    }
-    public virtual void InAStringConstants(AStringConstants node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAStringConstants(AStringConstants node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAStringConstants(AStringConstants node)
-    {
-        InAStringConstants(node);
-        if(node.GetConstants() != null)
-        {
-            node.GetConstants().Apply(this);
-        }
-        if(node.GetEnd() != null)
-        {
-            node.GetEnd().Apply(this);
-        }
-        if(node.GetString() != null)
-        {
-            node.GetString().Apply(this);
-        }
-        if(node.GetAssignment() != null)
-        {
-            node.GetAssignment().Apply(this);
-        }
-        if(node.GetVariable() != null)
-        {
-            node.GetVariable().Apply(this);
-        }
-        OutAStringConstants(node);
     }
     public virtual void InANoneConstants(ANoneConstants node)
     {

@@ -7,7 +7,7 @@ public method2 start parentheses integer this_integer1 end parentheses start bra
 
 main start brace 
 	integer this_int end
-	integer this_int2 end
+	integer this_int end
 
 	integer array1 start bracket 3 end bracket end
 	integer array2 start bracket 3 end bracket end

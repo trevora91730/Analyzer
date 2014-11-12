@@ -1,1 +1,0 @@
-"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticTests.txt"

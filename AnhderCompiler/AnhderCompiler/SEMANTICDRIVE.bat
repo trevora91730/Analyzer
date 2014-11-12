@@ -1,1 +1,5 @@
-"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticTests.txt"
+"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticTests.txt" > "bin/Debug/OutputSemanticTests.txt"
+"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticFailTest1.txt" >> "bin/Debug/OutputSemanticTests.txt"
+"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticFailTest2.txt" >> "bin/Debug/OutputSemanticTests.txt"
+"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticFailTest3.txt" >> "bin/Debug/OutputSemanticTests.txt"
+"bin/Debug/AnhderCompiler.exe" "bin/Debug/SemanticFailTest4.txt" >> "bin/Debug/OutputSemanticTests.txt"

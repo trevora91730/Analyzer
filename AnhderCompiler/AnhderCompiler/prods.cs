@@ -243,7 +243,8 @@ public sealed class AProgram : PProgram
 }
 public sealed class AIntegerConstants : PConstants
 {
-    private TVariable _variable_;
+    private TVariable _var1_;
+    private TVariable _var2_;
     private TAssignment _assignment_;
     private TInteger _integer_;
     private TEnd _end_;
@@ -254,14 +255,16 @@ public sealed class AIntegerConstants : PConstants
     }
 
     public AIntegerConstants (
-            TVariable _variable_,
+            TVariable _var1_,
+            TVariable _var2_,
             TAssignment _assignment_,
             TInteger _integer_,
             TEnd _end_,
             PConstants _constants_
     )
     {
-        SetVariable (_variable_);
+        SetVar1 (_var1_);
+        SetVar2 (_var2_);
         SetAssignment (_assignment_);
         SetInteger (_integer_);
         SetEnd (_end_);
@@ -271,7 +274,8 @@ public sealed class AIntegerConstants : PConstants
     public override Object Clone()
     {
         return new AIntegerConstants (
-            (TVariable)CloneNode (_variable_),
+            (TVariable)CloneNode (_var1_),
+            (TVariable)CloneNode (_var2_),
             (TAssignment)CloneNode (_assignment_),
             (TInteger)CloneNode (_integer_),
             (TEnd)CloneNode (_end_),
@@ -284,16 +288,16 @@ public sealed class AIntegerConstants : PConstants
         ((Analysis) sw).CaseAIntegerConstants(this);
     }
 
-    public TVariable GetVariable ()
+    public TVariable GetVar1 ()
     {
-        return _variable_;
+        return _var1_;
     }
 
-    public void SetVariable (TVariable node)
+    public void SetVar1 (TVariable node)
     {
-        if(_variable_ != null)
+        if(_var1_ != null)
         {
-            _variable_.Parent(null);
+            _var1_.Parent(null);
         }
 
         if(node != null)
@@ -306,7 +310,31 @@ public sealed class AIntegerConstants : PConstants
             node.Parent(this);
         }
 
-        _variable_ = node;
+        _var1_ = node;
+    }
+    public TVariable GetVar2 ()
+    {
+        return _var2_;
+    }
+
+    public void SetVar2 (TVariable node)
+    {
+        if(_var2_ != null)
+        {
+            _var2_.Parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.Parent() != null)
+            {
+                node.Parent().RemoveChild(node);
+            }
+
+            node.Parent(this);
+        }
+
+        _var2_ = node;
     }
     public TAssignment GetAssignment ()
     {
@@ -408,7 +436,8 @@ public sealed class AIntegerConstants : PConstants
     public override string ToString()
     {
         return ""
-            + ToString (_variable_)
+            + ToString (_var1_)
+            + ToString (_var2_)
             + ToString (_assignment_)
             + ToString (_integer_)
             + ToString (_end_)
@@ -418,9 +447,14 @@ public sealed class AIntegerConstants : PConstants
 
     internal override void RemoveChild(Node child)
     {
-        if ( _variable_ == child )
+        if ( _var1_ == child )
         {
-            _variable_ = null;
+            _var1_ = null;
+            return;
+        }
+        if ( _var2_ == child )
+        {
+            _var2_ = null;
             return;
         }
         if ( _assignment_ == child )
@@ -447,9 +481,14 @@ public sealed class AIntegerConstants : PConstants
 
     internal override void ReplaceChild(Node oldChild, Node newChild)
     {
-        if ( _variable_ == oldChild )
+        if ( _var1_ == oldChild )
         {
-            SetVariable ((TVariable) newChild);
+            SetVar1 ((TVariable) newChild);
+            return;
+        }
+        if ( _var2_ == oldChild )
+        {
+            SetVar2 ((TVariable) newChild);
             return;
         }
         if ( _assignment_ == oldChild )
@@ -477,7 +516,8 @@ public sealed class AIntegerConstants : PConstants
 }
 public sealed class AFloatConstants : PConstants
 {
-    private TVariable _variable_;
+    private TVariable _var1_;
+    private TVariable _var2_;
     private TAssignment _assignment_;
     private TFloat _float_;
     private TEnd _end_;
@@ -488,14 +528,16 @@ public sealed class AFloatConstants : PConstants
     }
 
     public AFloatConstants (
-            TVariable _variable_,
+            TVariable _var1_,
+            TVariable _var2_,
             TAssignment _assignment_,
             TFloat _float_,
             TEnd _end_,
             PConstants _constants_
     )
     {
-        SetVariable (_variable_);
+        SetVar1 (_var1_);
+        SetVar2 (_var2_);
         SetAssignment (_assignment_);
         SetFloat (_float_);
         SetEnd (_end_);
@@ -505,7 +547,8 @@ public sealed class AFloatConstants : PConstants
     public override Object Clone()
     {
         return new AFloatConstants (
-            (TVariable)CloneNode (_variable_),
+            (TVariable)CloneNode (_var1_),
+            (TVariable)CloneNode (_var2_),
             (TAssignment)CloneNode (_assignment_),
             (TFloat)CloneNode (_float_),
             (TEnd)CloneNode (_end_),
@@ -518,16 +561,16 @@ public sealed class AFloatConstants : PConstants
         ((Analysis) sw).CaseAFloatConstants(this);
     }
 
-    public TVariable GetVariable ()
+    public TVariable GetVar1 ()
     {
-        return _variable_;
+        return _var1_;
     }
 
-    public void SetVariable (TVariable node)
+    public void SetVar1 (TVariable node)
     {
-        if(_variable_ != null)
+        if(_var1_ != null)
         {
-            _variable_.Parent(null);
+            _var1_.Parent(null);
         }
 
         if(node != null)
@@ -540,7 +583,31 @@ public sealed class AFloatConstants : PConstants
             node.Parent(this);
         }
 
-        _variable_ = node;
+        _var1_ = node;
+    }
+    public TVariable GetVar2 ()
+    {
+        return _var2_;
+    }
+
+    public void SetVar2 (TVariable node)
+    {
+        if(_var2_ != null)
+        {
+            _var2_.Parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.Parent() != null)
+            {
+                node.Parent().RemoveChild(node);
+            }
+
+            node.Parent(this);
+        }
+
+        _var2_ = node;
     }
     public TAssignment GetAssignment ()
     {
@@ -642,7 +709,8 @@ public sealed class AFloatConstants : PConstants
     public override string ToString()
     {
         return ""
-            + ToString (_variable_)
+            + ToString (_var1_)
+            + ToString (_var2_)
             + ToString (_assignment_)
             + ToString (_float_)
             + ToString (_end_)
@@ -652,9 +720,14 @@ public sealed class AFloatConstants : PConstants
 
     internal override void RemoveChild(Node child)
     {
-        if ( _variable_ == child )
+        if ( _var1_ == child )
         {
-            _variable_ = null;
+            _var1_ = null;
+            return;
+        }
+        if ( _var2_ == child )
+        {
+            _var2_ = null;
             return;
         }
         if ( _assignment_ == child )
@@ -681,9 +754,14 @@ public sealed class AFloatConstants : PConstants
 
     internal override void ReplaceChild(Node oldChild, Node newChild)
     {
-        if ( _variable_ == oldChild )
+        if ( _var1_ == oldChild )
         {
-            SetVariable ((TVariable) newChild);
+            SetVar1 ((TVariable) newChild);
+            return;
+        }
+        if ( _var2_ == oldChild )
+        {
+            SetVar2 ((TVariable) newChild);
             return;
         }
         if ( _assignment_ == oldChild )
@@ -694,240 +772,6 @@ public sealed class AFloatConstants : PConstants
         if ( _float_ == oldChild )
         {
             SetFloat ((TFloat) newChild);
-            return;
-        }
-        if ( _end_ == oldChild )
-        {
-            SetEnd ((TEnd) newChild);
-            return;
-        }
-        if ( _constants_ == oldChild )
-        {
-            SetConstants ((PConstants) newChild);
-            return;
-        }
-    }
-
-}
-public sealed class AStringConstants : PConstants
-{
-    private TVariable _variable_;
-    private TAssignment _assignment_;
-    private TString _string_;
-    private TEnd _end_;
-    private PConstants _constants_;
-
-    public AStringConstants ()
-    {
-    }
-
-    public AStringConstants (
-            TVariable _variable_,
-            TAssignment _assignment_,
-            TString _string_,
-            TEnd _end_,
-            PConstants _constants_
-    )
-    {
-        SetVariable (_variable_);
-        SetAssignment (_assignment_);
-        SetString (_string_);
-        SetEnd (_end_);
-        SetConstants (_constants_);
-    }
-
-    public override Object Clone()
-    {
-        return new AStringConstants (
-            (TVariable)CloneNode (_variable_),
-            (TAssignment)CloneNode (_assignment_),
-            (TString)CloneNode (_string_),
-            (TEnd)CloneNode (_end_),
-            (PConstants)CloneNode (_constants_)
-        );
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseAStringConstants(this);
-    }
-
-    public TVariable GetVariable ()
-    {
-        return _variable_;
-    }
-
-    public void SetVariable (TVariable node)
-    {
-        if(_variable_ != null)
-        {
-            _variable_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _variable_ = node;
-    }
-    public TAssignment GetAssignment ()
-    {
-        return _assignment_;
-    }
-
-    public void SetAssignment (TAssignment node)
-    {
-        if(_assignment_ != null)
-        {
-            _assignment_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _assignment_ = node;
-    }
-    public TString GetString ()
-    {
-        return _string_;
-    }
-
-    public void SetString (TString node)
-    {
-        if(_string_ != null)
-        {
-            _string_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _string_ = node;
-    }
-    public TEnd GetEnd ()
-    {
-        return _end_;
-    }
-
-    public void SetEnd (TEnd node)
-    {
-        if(_end_ != null)
-        {
-            _end_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _end_ = node;
-    }
-    public PConstants GetConstants ()
-    {
-        return _constants_;
-    }
-
-    public void SetConstants (PConstants node)
-    {
-        if(_constants_ != null)
-        {
-            _constants_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _constants_ = node;
-    }
-
-    public override string ToString()
-    {
-        return ""
-            + ToString (_variable_)
-            + ToString (_assignment_)
-            + ToString (_string_)
-            + ToString (_end_)
-            + ToString (_constants_)
-        ;
-    }
-
-    internal override void RemoveChild(Node child)
-    {
-        if ( _variable_ == child )
-        {
-            _variable_ = null;
-            return;
-        }
-        if ( _assignment_ == child )
-        {
-            _assignment_ = null;
-            return;
-        }
-        if ( _string_ == child )
-        {
-            _string_ = null;
-            return;
-        }
-        if ( _end_ == child )
-        {
-            _end_ = null;
-            return;
-        }
-        if ( _constants_ == child )
-        {
-            _constants_ = null;
-            return;
-        }
-    }
-
-    internal override void ReplaceChild(Node oldChild, Node newChild)
-    {
-        if ( _variable_ == oldChild )
-        {
-            SetVariable ((TVariable) newChild);
-            return;
-        }
-        if ( _assignment_ == oldChild )
-        {
-            SetAssignment ((TAssignment) newChild);
-            return;
-        }
-        if ( _string_ == oldChild )
-        {
-            SetString ((TString) newChild);
             return;
         }
         if ( _end_ == oldChild )

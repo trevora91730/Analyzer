@@ -1,5 +1,5 @@
 integer constant is assigned to 3 end
-integer constant1 is assigned to 5 end
+integer constant is assigned to 5 end
 
 public method start parentheses end parentheses start brace end brace
 public method1 start parentheses integer this_integer end parentheses start brace end brace

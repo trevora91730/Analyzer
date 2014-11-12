@@ -10,5 +10,5 @@ main start brace
 	integer this_int2 end
 
 	integer array1 start bracket 3 end bracket end
-	integer array2 start bracket 3 end bracket end
+	integer array1 start bracket 3 end bracket end
 end brace

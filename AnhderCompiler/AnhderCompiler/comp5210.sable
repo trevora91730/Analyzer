@@ -75,9 +75,8 @@ Productions
 		program = constants methods main_program;
 
 		//constants are declared
-		constants = {integer} variable assignment integer end constants |
-					{float} variable assignment float end constants |
-					{string} variable assignment string end constants |
+		constants = {integer} [var1]:variable [var2]:variable assignment integer end constants |
+					{float} [var1]:variable [var2]:variable assignment float end constants |
 					{none} ; 
 					
 		//methods are optional

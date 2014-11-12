@@ -3,7 +3,7 @@ integer constant1 is assigned to 5 end
 
 public method start parentheses end parentheses start brace end brace
 public method1 start parentheses integer this_integer end parentheses start brace end brace
-public method2 start parentheses integer this_integer1 end parentheses start brace end brace
+public method2 start parentheses integer this_integer end parentheses start brace end brace
 
 main start brace 
 	integer this_int end
