@@ -383,7 +383,6 @@ namespace parser
             }
         }
 
-
         public override void OutAAddMath(comp5210.node.AAddMath node)
         {
             Definition rhs, lhs;
@@ -404,6 +403,47 @@ namespace parser
             if ((lhs as VariableDefinition).vartype != rhs)
             {
                 Console.WriteLine("[" + node.GetMinus().Line + "]: " + "types don't match.");
+            }
+        }
+
+        public override void OutAMultiMultiDivide(comp5210.node.AMultiMultiDivide node)
+        {
+            Definition rhs, lhs;
+            nodehash.TryGetValue(node.GetMultiDivide(), out rhs);
+            nodehash.TryGetValue(node.GetParentheses(), out lhs);
+
+            if ((lhs as VariableDefinition).vartype != rhs)
+            {
+                Console.WriteLine("[" + node.GetMultiplication().Line + "]: " +
+                    "types don't match");
+            }
+        }
+
+        public override void OutADivideMultiDivide(comp5210.node.ADivideMultiDivide node)
+        {
+            Definition rhs, lhs;
+            nodehash.TryGetValue(node.GetMultiDivide(), out rhs);
+            nodehash.TryGetValue(node.GetParentheses(), out lhs);
+
+            if ((lhs as VariableDefinition).vartype != rhs)
+            {
+                Console.WriteLine("[" + node.GetDivision().Line + "]: " +
+                    "types don't match");
+            }
+        }
+
+        public override void OutAVariableParentheses(comp5210.node.AVariableParentheses node)
+        {
+            VariableDefinition var = new VariableDefinition();
+            var.name = node.GetVariable().Text;
+
+            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+            {
+                stringhash.Add(var.name, var);
+            }
+            else
+            {
+                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variables already in tables");
             }
         }
 
