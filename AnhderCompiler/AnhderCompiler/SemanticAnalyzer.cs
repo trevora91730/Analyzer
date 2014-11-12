@@ -351,9 +351,39 @@ namespace parser
             }
         }
 
-<<<<<<< HEAD
-        public override void OutAVarParam(comp5210.node.AVarParam node)
-=======
+          public override void OutAVarParam(comp5210.node.AVarParam node)
+        {
+            VariableDefinition var = new VariableDefinition();
+            var.name = node.GetVariable().Text;
+
+
+            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+            {
+                stringhash.Add(var.name, var);
+            }
+            else
+            {
+                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable already in tables");
+            }
+        }
+
+        public override void OutAVarMoreParam(comp5210.node.AOthersMoreParam node)
+        {
+            VariableDefinition var = new VariableDefinition();
+            var.name = node.GetVariable().Text;
+
+
+            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
+            {
+                stringhash.Add(var.name, var);
+            }
+            else
+            {
+                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable already in tables");
+            }
+        }
+
+
         public override void OutAAddMath(comp5210.node.AAddMath node)
         {
             Definition rhs, lhs;
@@ -377,138 +407,6 @@ namespace parser
             }
         }
 
-        public override void OutAMultiMultiDivide(comp5210.node.AMultiMultiDivide node)
->>>>>>> origin/master
-        {
-            VariableDefinition var = new VariableDefinition();
-            var.name = node.GetVariable().Text;
-
-
-            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
-            {
-                stringhash.Add(var.name, var);
-            }
-            else
-            {
-                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable already in tables");
-            }   
-        }
-
-        public override void OutAVarMoreParam(comp5210.node.AOthersMoreParam node)
-        {
-            VariableDefinition var = new VariableDefinition();
-            var.name = node.GetVariable().Text;
-
-
-            if (!stringhash.ContainsValue(var) && !nodehash.ContainsValue(var))
-            {
-                stringhash.Add(var.name, var);
-            }
-            else
-            {
-                Console.WriteLine("[" + node.GetVariable().Line + "]: " + "variable already in tables");
-            }
-        }
-       /* public override void OutAProgramMain_Program(comp5210.node.AProgramMain_Program node)
-        {
-             string varname = node.GetVarname().Text;
-            if (!stringhash.ContainsValue(varname) && !nodehash.ContainsValue(varname))
-            {
-                stringhash.Add(varname.name, varname);
-            }
-            else
-            {
-                Console.WriteLine("[" + node.GetEquals().Line = "]: " + "Main already assigned");
-            }   
-        }*/
-
-        /*
-        public override void OutAVarDecl(comp5210.node.AVarDecl node)
-        {
-            string typename = node.GetTypename().Text;
-            string varname = node.GetVarname().Text;
-            Definition typedefn;
-            // lookup the type
-            if (!stringhash.TryGetValue(typename,out typedefn))
-            {
-                Console.WriteLine("[" + node.GetTypename().Line + "]: " +
-                    typename + " is not defined.");
-            }
-            // check to make sure what we got back is a type
-            else if (!(typedefn is TypeDefinition))
-            {
-                Console.WriteLine("[" + node.GetSemicolon().Line + "]: " +
-                    typename + " is an invalid type.");
-            }
-            else
-            {
-                // add this variable to the hash table
-                // note you need to add checks to make sure this 
-                // variable name isn't already defined.
-                VariableDefinition vardefn = new VariableDefinition();
-                vardefn.name = varname;
-                vardefn.vartype = typedefn as TypeDefinition;
-                if(!stringhash.ContainsValue(vardefn) && !nodehash.ContainsValue(vardefn))
-                {
-                    stringhash.Add(vardefn.name, vardefn);
-                }
-                else
-                {
-                    Console.WriteLine("[" + node.GetEquals().Line = "]: " + "variables already in tables");
-                }                
-            }
-        }
-        public override void OutAStmt(comp5210.node.AStmt node)
-        {
-            Definition rhs,lhs;
-            nodehash.TryGetValue(node.GetExpr(), out rhs);
-            stringhash.TryGetValue(node.GetId().Text, out lhs);
-            // make sure left hand side and right hand side match
-            // of course, you should really make sure left side is
-            // a variable first
-            if ((lhs as VariableDefinition).vartype != rhs)
-            {
-                Console.WriteLine("[" + node.GetEquals().Line + "]: " +
-                    "types don't match");
-            }
-        }
-        public override void OutAComplexExpr(comp5210.node.AComplexExpr node)
-        {
-            Definition lhs;
-            nodehash.TryGetValue(node.GetBase(), out lhs);
-            // you should really get the types of both sides and make sure 
-            // they match
-            // make sure the type of the child is a BasicType, as those
-            // are the only addable things.
-            nodehash.Add(node, lhs);
-        }
-        public override void OutASimpleExpr(comp5210.node.ASimpleExpr node)
-        {
-            Definition lhs;
-            nodehash.TryGetValue(node.GetBase(), out lhs);
-            nodehash.Add(node, lhs);
-        }
-        public override void OutAParenBase(comp5210.node.AParenBase node)
-        {
-            Definition exprdefn;
-            nodehash.TryGetValue(node.GetExpr(), out exprdefn);
-            nodehash.Add(node, exprdefn);
-        }
-        public override void OutAIdBase(comp5210.node.AIdBase node)
-        {
-            Definition iddefn;
-            if (!stringhash.TryGetValue(node.GetId().Text, out iddefn))
-            {
-                Console.WriteLine("[" + node.GetId().Line + "]: " +
-                    node.GetId().Text + " is not defined");
-            }
-            // you should really make sure that iddefn is a variable 
-            // definition
-            else
-            {
-                nodehash.Add(node, (iddefn as VariableDefinition).vartype);
-            }
-        }
-         */
+       
     }
 }
