@@ -349,6 +349,28 @@ namespace parser
             }
         }
 
+        public override void OutAAddMath(comp5210.node.AAddMath node)
+        {
+            Definition rhs, lhs;
+            nodehash.TryGetValue(node.GetMath(), out rhs);
+            nodehash.TryGetValue(node.GetMultiDivide(), out lhs);
+
+            if ((lhs as VariableDefinition).vartype != rhs)
+            {
+                Console.WriteLine("[" + node.GetPlus().Line + "]: " + "types don't match.");
+            }
+        }
+        public override void OutASubMath(comp5210.node.ASubMath node)
+        {
+            Definition rhs, lhs;
+            nodehash.TryGetValue(node.GetMath(), out rhs);
+            nodehash.TryGetValue(node.GetMultiDivide(), out lhs);
+
+            if ((lhs as VariableDefinition).vartype != rhs)
+            {
+                Console.WriteLine("[" + node.GetMinus().Line + "]: " + "types don't match.");
+            }
+        }
 
         public override void OutAMultiMultiDivide(comp5210.node.AMultiMultiDivide node)
         {
