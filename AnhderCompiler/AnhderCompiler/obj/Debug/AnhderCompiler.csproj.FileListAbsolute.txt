@@ -13,3 +13,4 @@ C:\CS426\Analyzer\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.pdb
 C:\CS426\Analyzer\AnhderCompiler\AnhderCompiler\bin\Debug\AnhderCompiler.exe
 C:\CS426\Analyzer\AnhderCompiler\AnhderCompiler\bin\Debug\AnhderCompiler.pdb
 C:\CS426\Analyzer\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.csprojResolveAssemblyReference.cache
+C:\temp\Analyzer\AnhderCompiler\AnhderCompiler\obj\Debug\AnhderCompiler.csprojResolveAssemblyReference.cache
