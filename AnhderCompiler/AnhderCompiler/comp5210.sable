@@ -94,7 +94,7 @@ Productions
 		main_program = {program} main start_brace stuff end_brace;
 				
 		//declarations of the variables to be used in the program
-		decls =  {var} [var1]:variable [var2]:variable | 
+		decls =  {var} [var1]:variable [var2]:variable |
 				{array} [var1]:variable [var2]:variable start_bracket integer end_bracket;
 
 		//everything that can be done inside a program

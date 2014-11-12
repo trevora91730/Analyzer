@@ -42,12 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="analysis.cs" />
-    <Compile Include="AnhderParser.cs" />
+    <Compile Include="Definition.cs" />
     <Compile Include="Lexer.cs" />
     <Compile Include="nodes.cs" />
-    <Compile Include="parser.cs" />
+    <Compile Include="parser.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="prods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Semantic.cs" />
+    <Compile Include="SemanticAnalyzer.cs" />
+    <Compile Include="semanticmain.cs" />
     <Compile Include="tokens.cs" />
   </ItemGroup>
   <ItemGroup>
