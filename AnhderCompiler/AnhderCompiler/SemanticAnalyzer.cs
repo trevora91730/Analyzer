@@ -326,6 +326,6 @@ namespace parser
                 nodehash.Add(node, (iddefn as VariableDefinition).vartype);
             }
         }
-         
-    }*/
+         */
+    }
 }
